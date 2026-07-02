@@ -1,3 +1,5 @@
+import ScrollReveal from "../components/ScrollReveal";
+
 const districts = [
   {
     name: "Solaris",
@@ -28,22 +30,23 @@ const districts = [
 export default function Districts() {
   return (
     <main className="min-h-screen pt-32 pb-20 px-10 max-w-5xl mx-auto">
-      <p className="text-cyan-400 tracking-[0.4em] text-xs uppercase mb-4">Districts</p>
-      <h1 className="text-6xl font-bold tracking-widest mb-16 text-white">地区案内</h1>
+      <ScrollReveal>
+        <p className="text-cyan-400 tracking-[0.4em] text-xs uppercase mb-4">Districts</p>
+        <h1 className="text-6xl font-bold tracking-widest mb-16 text-white">地区案内</h1>
+      </ScrollReveal>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {districts.map((d) => (
-          <div
-            key={d.name}
-            className="border border-white/10 p-8 hover:border-cyan-400/40 transition-colors duration-300 group"
-          >
-            <p className="text-cyan-400/60 text-xs tracking-widest uppercase mb-2">{d.tag}</p>
-            <h2 className="text-3xl font-bold tracking-widest text-white mb-1 group-hover:text-cyan-400 transition-colors duration-300">
-              {d.name}
-            </h2>
-            <p className="text-white/30 text-sm tracking-widest mb-6">{d.ja}</p>
-            <p className="text-white/50 leading-relaxed">{d.desc}</p>
-          </div>
+          <ScrollReveal key={d.name}>
+            <div className="border border-white/10 p-8 hover:border-cyan-400/40 transition-colors duration-300 group h-full">
+              <p className="text-cyan-400/60 text-xs tracking-widest uppercase mb-2">{d.tag}</p>
+              <h2 className="text-3xl font-bold tracking-widest text-white mb-1 group-hover:text-cyan-400 transition-colors duration-300">
+                {d.name}
+              </h2>
+              <p className="text-white/30 text-sm tracking-widest mb-6">{d.ja}</p>
+              <p className="text-white/50 leading-relaxed">{d.desc}</p>
+            </div>
+          </ScrollReveal>
         ))}
       </div>
     </main>

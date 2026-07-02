@@ -1,9 +1,14 @@
+import Particles from "./components/Particles";
+
 export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* 背景グラデーション */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-cyan-950/20 to-black" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent" />
+
+      {/* パーティクル */}
+      <Particles />
 
       {/* コンテンツ */}
       <div className="relative z-10 text-center px-6">
