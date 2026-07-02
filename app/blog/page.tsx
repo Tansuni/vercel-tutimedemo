@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { client, Blog } from "../lib/microcms";
 import Link from "next/link";
 
