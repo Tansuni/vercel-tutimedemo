@@ -15,24 +15,21 @@ export default function PageTransition({ children }: { children: React.ReactNode
 
     gsap.timeline()
       .to(content, {
-  scale: 0.05,
-  opacity: 0,
-  filter: "blur(20px) brightness(3)",
-  duration: 0.6,
-  ease: "expo.in",  // ここ
-  onComplete: () => setDisplayed(children),
-})
+        y: -60,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.in",
+        onComplete: () => setDisplayed(children),
+      })
       .fromTo(
         content,
         {
-          scale: 8,
+          y: 80,
           opacity: 0,
-          filter: "blur(30px) brightness(3)",
         },
         {
-          scale: 1,
+          y: 0,
           opacity: 1,
-          filter: "blur(0px) brightness(1)",
           duration: 0.6,
           ease: "power3.out",
         }
@@ -40,7 +37,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
   }, [pathname]);
 
   return (
-    <div ref={contentRef} style={{ willChange: "transform, filter" }}>
+    <div ref={contentRef} style={{ willChange: "transform, opacity" }}>
       {displayed}
     </div>
   );
